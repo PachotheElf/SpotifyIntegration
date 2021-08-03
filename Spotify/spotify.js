@@ -13,7 +13,10 @@ import config from '../src/config'
 /** @typedef {{offset?: number | undefined; limit?: number | undefined;}} PaginationOptions*/
 
 //  This redirect uri MUST be changed on iOS.  Android does its own thing integrating auth flow with the Spotify App instead of using a swap server.
-const SPOTIFY_REDIRECT_URI = 'Spotify://auth/'
+const SPOTIFY_REDIRECT_URI =
+  Platform.OS === 'ios'
+    ? 'org.reactjs.native.example.SpotifyIntegration://Spotify'
+    : 'Spotify://auth/'
 const SPOTIFY_SCOPES = [
   ApiScope.AppRemoteControlScope,
   ApiScope.PlaylistReadPrivateScope,
@@ -28,8 +31,8 @@ const SPOTIFY_SESSION_CONFIG = {
       ? config.SPOTIFY_CLIENT_ID_ANDROID
       : config.SPOTIFY_CLIENT_ID_IOS,
   redirectURL: SPOTIFY_REDIRECT_URI,
-  tokenRefreshURL: `${config.API_URL}/spotify/refresh`,
-  tokenSwapURL: `${config.API_URL}/spotify/swap`,
+  tokenRefreshURL: `${config.API_URL}/refresh`,
+  tokenSwapURL: `${config.API_URL}/swap`,
   scopes: SPOTIFY_SCOPES,
   //  THIS TAG ISN'T WORKING
   showDialog: false,
