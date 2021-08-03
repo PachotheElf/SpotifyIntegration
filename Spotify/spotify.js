@@ -106,7 +106,7 @@ class Spotify {
       this.webApi.setAccessToken(newSession.accessToken)
       return newSession
     } catch (err) {
-      console.log('Spotify Module - Could not refresh session:', err)
+      console.warn('Spotify Module - Could not refresh session:', err)
       await this.deInit()
       if (!catchErrors) {
         throw err
@@ -129,7 +129,7 @@ class Spotify {
       }
       return (await this.webApi.getUserPlaylists(paginationOptions)).body
     } catch (err) {
-      console.log('Spotify Module - Could not get own playlists:\n', err)
+      console.warn('Spotify Module - Could not get own playlists:\n', err)
       if (!catchErrors) {
         throw err
       }
@@ -159,7 +159,7 @@ class Spotify {
           },
         )
       } catch (err) {
-        console.log(
+        console.warn(
           'Spotify Module - Error getting the cached own playlists: \n',
           err,
         )
@@ -186,7 +186,7 @@ class Spotify {
         await this.remote.connect(session.accessToken)
       }
     } catch (err) {
-      console.log(
+      console.warn(
         'Spotify Module - Could not connect to remote Spotify player',
         err,
       )
@@ -228,7 +228,7 @@ class Spotify {
       await this.connectRemote(catchErrors)
       return await this.remote.getPlayerState()
     } catch (err) {
-      console.log("Spotify Module - Can't get remote Spotify player state", err)
+      console.warn("Spotify Module - Can't get remote Spotify player state", err)
       if (!catchErrors) {
         throw err
       }
@@ -246,7 +246,7 @@ class Spotify {
       await this.connectRemote(catchErrors)
       await this.remote.playUri(uri)
     } catch (err) {
-      console.log(
+      console.warn(
         `Spotify Module - Could not play from uri ${uri} on remote Spotify player`,
         err,
       )
@@ -265,7 +265,7 @@ class Spotify {
       await this.connectRemote(catchErrors)
       await this.remote.pause()
     } catch (err) {
-      console.log(
+      console.warn(
         'Spotify Module - Could not pause playback remote Spotify player',
         err,
       )
@@ -284,7 +284,7 @@ class Spotify {
       await this.connectRemote(catchErrors)
       await this.remote.resume()
     } catch (err) {
-      console.log(
+      console.warn(
         'Spotify Module - Could not resume playback on remote Spotify player',
         err,
       )
@@ -306,7 +306,7 @@ class Spotify {
         await this.remote.seek(0)
       }
     } catch (err) {
-      console.log(
+      console.warn(
         'Spotify Module - Could not stop playback on remote Spotify player',
         err,
       )
@@ -325,7 +325,7 @@ class Spotify {
       await this.connectRemote(catchErrors)
       await this.remote.skipToNext()
     } catch (err) {
-      console.log(
+      console.warn(
         'Spotify Module - Could not skip to next on remote Spotify player',
         err,
       )
@@ -344,7 +344,7 @@ class Spotify {
       await this.connectRemote(catchErrors)
       await this.remote.skipToPrevious()
     } catch (err) {
-      console.log(
+      console.warn(
         'Spotify Module - Could not skip to previous on remote Spotify player',
         err,
       )
