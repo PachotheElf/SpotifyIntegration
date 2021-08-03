@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    "jsx": "react-native",
+    "baseUrl": "./src",
+    "paths": {
+      "@components": [
+        "./components"
+      ],
+      "@screens": [
+        "./screens"
+      ],
+      "@config": [
+        "./config.js"
+      ],
+      "@App": [
+        "../App"
+      ],
+      "@theme": [
+        "./theme"
+      ],
+      "@utils": [
+        "./utils"
+      ],
+      "@store": [
+        "./store"
+      ],
+      "@context/*": [
+        "./data/contexts/*"
+      ],
+      "@model/*": [
+        "./data/models/*"
+      ],
+      "@providers": [
+        "./providers"
+      ],
+      "@service/*": [
+        "./data/services/*"
+      ],
+      "@transformer": [
+        "./utils/Transformers"
+      ],
+      "@router": [
+        "./router"
+      ]
+    },
+    "experimentalDecorators": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
