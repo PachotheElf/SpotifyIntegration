@@ -13,6 +13,8 @@ import config from '../src/config'
 /** @typedef {{offset?: number | undefined; limit?: number | undefined;}} PaginationOptions*/
 
 //  This redirect uri MUST be changed on iOS.  Android does its own thing integrating auth flow with the Spotify App instead of using a swap server.
+//  Redirect uri will likely have to be changed to ios' implementation
+//  ios redirect uri is <bundle_id>://<user-defined-callback>
 const SPOTIFY_REDIRECT_URI =
   Platform.OS === 'ios'
     ? 'org.reactjs.native.example.SpotifyIntegration://spotify-auth'
