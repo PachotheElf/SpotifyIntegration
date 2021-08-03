@@ -36,7 +36,7 @@ const SPOTIFY_SESSION_CONFIG = {
   scopes: SPOTIFY_SCOPES,
   //  THIS TAG ISN'T WORKING
   showDialog: false,
-  authType: Platform.OS === 'ios' ? 'CODE' : 'TOKEN',
+  authType: 'TOKEN',
 }
 
 /**
