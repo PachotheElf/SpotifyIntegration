@@ -62,6 +62,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<!-- Spotify app search uri scheme whitelisted -->
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>spotify</string>
